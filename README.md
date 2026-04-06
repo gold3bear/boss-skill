@@ -43,22 +43,24 @@ Boss Skill 是一个将老板/上级"蒸馏"成AI Skill的工具，帮助用户�
 
 ```
 boss-skill/
-├── SKILL.md              # Skill入口
-├── README.md              # 说明文档
-├── prompts/               # Prompt模板
-│   ├── intake.md          # 信息录入
-│   ├── decision_analyzer.md # 决策分析
-│   ├── power_analyzer.md   # 权力结构分析
-│   ├── decision_builder.md # 决策框架生成
-│   └── power_builder.md    # 权力结构生成
-└── boss/                  # 生成的Boss Skill
+├── SKILL.md              # Skill入口（boss-skill-creator）
+├── prompts/             # 生成模板
+│   ├── intake.md         # 信息录入
+│   ├── decision_analyzer.md  # 决策分析
+│   ├── power_analyzer.md    # 权力结构分析
+│   ├── decision_builder.md  # decision.md 模板
+│   ├── business_builder.md  # business_context.md 模板
+│   ├── persona_builder.md   # persona.md 模板
+│   └── skill_builder.md    # SKILL.md 生成模板
+└── boss/                 # 生成的Boss Skill
     └── {slug}/
-        ├── SKILL.md
-        ├── decision.md
-        ├── power.md
-        ├── business_arch.md
-        ├── okr_kpi.md
-        └── meta.json
+        ├── SKILL.md          # 主入口（第一人称）
+        ├── decision.md       # 决策框架+权力结构
+        ├── business_context.md  # 业务边界+OKR/KPI
+        ├── persona.md        # 人格特质（Layer 0-4）
+        ├── meta.json         # 元数据
+        └── knowledge/
+            └── raw_materials.md  # 原始素材
 ```
 
 ---
@@ -91,9 +93,7 @@ git clone https://github.com/your-repo/boss-skill .claude/skills/boss-skill
 ### 调用Boss Skill
 
 ```
-/boss {slug}              # 完整Boss Skill
-/boss {slug}-decision     # 仅决策框架
-/boss {slug}-power        # 仅权力结构
+/boss {slug}              # 完整Boss Skill（第一人称沉浸式）
 ```
 
 ---
