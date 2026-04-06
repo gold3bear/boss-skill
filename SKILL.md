@@ -9,7 +9,7 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 
 > **Language / 语言**: 本Skill支持中英文。根据用户第一条消息的语言，全程使用同一语言回复。
 
-# Boss.Skill 创建器
+# 老板.Skill 创建器
 
 ## 触发条件
 
@@ -50,7 +50,7 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 
 1. **老板代号/姓名**（必填）
 2. **基本信息**（一句话：公司、职级、负责业务、汇报对象）
-   - 示例：`喜马拉雅 P9+ 内容业务 向CTO汇报`
+   - 示例：`某大厂 P9+ 内容业务 向CTO汇报`
 3. **老板类型**（选择或描述）
    - 增长型 / 防守型 / 创新型 / 救火型
 4. **你的印象**（一句话：决策风格、沟通方式、典型行为）
@@ -146,25 +146,27 @@ Boss Skill的核心知识优先级：
 
 生成以下文件内容：
 
-1. **decision.md**（决策框架）
-2. **power.md**（权力结构）
-3. **business_arch.md**（业务架构）
-4. **okr_kpi.md**（OKR/KPI）
-5. **meta.json**（元信息）
+1. **decision.md**（决策框架 + 权力结构，合并）
+2. **business_context.md**（业务架构 + OKR/KPI，合并）
+3. **persona.md**（个人性格特质）
+4. **meta.json**（元信息）
 
 向用户展示摘要（各5-8行），询问：
 ```
 Boss Skill 摘要：
 
-决策框架：
-- 什么情况下会支持：_______________
-- 什么情况下会反对：_______________
-- 典型潜台词：_______________
+Boss 本质：
+- 什么情况下会说 Yes：_______________
+- 什么情况下会说 No：_______________
+- 权力红线：_______________
 
-权力结构：
-- 老板类型：_______________
-- 核心关注：_______________
-- 汇报偏好：_______________
+业务上下文：
+- 负责业务：_______________
+- 当前 OKR 重点：_______________
+
+个人特质：
+- 沟通风格：_______________
+- 工作习惯：_______________
 
 确认生成？还是需要调整？
 ```
@@ -178,10 +180,9 @@ Boss Skill 摘要：
 **1. 创建目录结构：**
 ```
 boss/{slug}/
-├── decision.md
-├── power.md
-├── business_arch.md
-├── okr_kpi.md
+├── decision.md      # 决策框架 + 权力结构
+├── business_context.md  # 业务架构 + OKR/KPI
+├── persona.md          # 个人性格特质
 ├── meta.json
 └── knowledge/
     └── raw_materials.md
@@ -189,77 +190,17 @@ boss/{slug}/
 
 **2. 写入decision.md：**
 
-```markdown
-# {name} — 决策框架
+使用 `prompts/decision_builder.md` 模板生成。
 
-## 决策规律
+**3. 写入business_context.md：**
 
-### 什么时候会说Yes
-（基于素材分析的具体场景）
+使用 `prompts/business_builder.md` 模板生成。
 
-### 什么时候会说No
-（基于素材分析的具体场景）
+**4. 写入persona.md：**
 
-### 什么时候会沉默
-（基于素材分析的具体场景）
+使用 `prompts/persona_builder.md` 模板生成。
 
-## 预判问题清单
-（推进方案前需要自问的问题）
-
-## 典型场景决策模式
-（方案审批/资源申请/跨部门协作）
-
-## 政治判断框架
-（什么时候支持/反对/拖延）
-```
-
-**3. 写入power.md：**
-
-```markdown
-# {name} — 权力结构
-
-## Layer 0：权力红线
-（绝对不能触碰的底线）
-
-## Layer 1：身份定位
-（职级/业务/汇报线）
-
-## Layer 2：决策风格
-（决策类型/信息获取）
-
-## Layer 3：立场判断
-（核心利益/人际网络）
-
-## Layer 4：权力运作
-（如何推进/阻止事情）
-
-## Layer 5：汇报偏好
-（喜欢/讨厌的汇报方式）
-```
-
-**4. 写入business_arch.md：**
-
-```markdown
-# 部门业务架构
-
-## 业务边界
-## 决策链条
-## 资源分布
-## 部门政治地图
-```
-
-**5. 写入okr_kpi.md：**
-
-```markdown
-# 部门OKR & KPI
-
-## 当前季度OKR
-## KPI指标
-## 指标优先级
-## 历史OKR分析
-```
-
-**6. 写入meta.json：**
+**5. 写入meta.json：**
 
 ```json
 {
@@ -275,6 +216,10 @@ boss/{slug}/
   "version": "v1"
 }
 ```
+
+**6. 生成完整SKILL.md：**
+
+使用 `prompts/skill_builder.md` 模板生成。
 
 **7. 生成完整SKILL.md：**
 
