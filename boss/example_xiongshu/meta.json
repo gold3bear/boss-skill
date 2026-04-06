@@ -1,0 +1,13 @@
+{
+  "name": "熊老板（示例）",
+  "slug": "example_xiongshu",
+  "level": "P9+",
+  "boss_type": "增长型",
+  "business": "喜马拉雅内容业务线",
+  "reporting_to": "CTO",
+  "key_metrics": ["DAU", "付费率", "用户时长"],
+  "created_at": "2026-04-06T00:00:00Z",
+  "updated_at": "2026-04-06T00:00:00Z",
+  "version": "v1",
+  "note": "这是一个示例Boss Skill，用于展示文件格式。实际使用时需要替换为真实老板的信息。"
+}
