@@ -1,0 +1,11 @@
+# Boss Skill - Python Dependencies
+
+# 基础依赖
+pypinyin>=0.50.0
+
+# 飞书相关
+playwright>=1.40.0
+
+# 文档解析
+python-docx>=1.0.0
+openpyxl>=3.1.0

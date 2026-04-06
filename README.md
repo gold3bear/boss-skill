@@ -51,6 +51,11 @@ boss-skill/
 │   ├── business_builder.md  # business_context.md 模板
 │   ├── persona_builder.md   # persona.md 模板
 │   └── skill_builder.md    # SKILL.md 生成模板
+├── tools/               # 数据采集工具
+│   ├── feishu_parser.py         # 飞书文档解析
+│   ├── feishu_auto_collector.py # 飞书自动采集（需开放平台权限）
+│   ├── feishu_browser.py        # 飞书浏览器方案（需登录态）
+│   └── email_parser.py          # 邮件解析
 └── boss/                 # 生成的Boss Skill
     └── {slug}/           # ⚠️ 建议加入 .gitignore 保护隐私
         ├── SKILL.md          # 主入口（第一人称）
@@ -101,10 +106,12 @@ Boss Skill 的知识来源，按优先级排序：
 ### 依赖安装（可选）
 
 ```bash
-# 基础 Python 依赖
-pip3 install pypinyin        # 中文姓名转拼音 slug
+# 安装所有依赖
+pip3 install -r requirements.txt
 
-# 文档解析支持
+# 或单独安装
+pip3 install pypinyin        # 中文姓名转拼音 slug
+pip3 install playwright      # 飞书浏览器方案
 pip3 install python-docx     # Word .docx 转文本
 pip3 install openpyxl        # Excel .xlsx 转 CSV
 ```
