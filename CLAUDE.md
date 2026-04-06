@@ -18,17 +18,16 @@ boss-skill/
 ├── prompts/               # Generation templates
 │   ├── intake.md          # Information collection
 │   ├── decision_analyzer.md   # Decision pattern analysis
-│   ├── power_analyzer.md      # Power structure analysis
 │   ├── decision_builder.md    # decision.md template
 │   ├── business_builder.md    # business_context.md template
-│   ├── persona_builder.md     # persona.md template (Layered 0-5)
+│   ├── persona_builder.md     # persona.md template (Layered 0-4)
 │   └── skill_builder.md       # SKILL.md entry template
 └── boss/                  # Generated Boss Skills
     └── {slug}/
         ├── SKILL.md       # Entry point (first-person, references files)
-        ├── decision.md    # Decision + Power (merged)
-        ├── business_context.md # Business + OKR/KPI (merged)
-        ├── persona.md     # Personality (Layered 0-5 structure)
+        ├── decision.md    # Decision + Power
+        ├── business_context.md # Business + OKR/KPI
+        ├── persona.md     # Personality (Layered 0-4)
         ├── meta.json      # Metadata
         └── knowledge/
             └── raw_materials.md

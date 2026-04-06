@@ -47,7 +47,6 @@ boss-skill/
 ├── prompts/             # 生成模板
 │   ├── intake.md         # 信息录入
 │   ├── decision_analyzer.md  # 决策分析
-│   ├── power_analyzer.md    # 权力结构分析
 │   ├── decision_builder.md  # decision.md 模板
 │   ├── business_builder.md  # business_context.md 模板
 │   ├── persona_builder.md   # persona.md 模板

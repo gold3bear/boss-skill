@@ -1,0 +1,13 @@
+{
+  "name": "熊老板（示例）",
+  "slug": "example_bossxiong",
+  "level": "P9+",
+  "boss_type": "增长型",
+  "business": "某大厂内容业务线",
+  "reporting_to": "CTO",
+  "key_metrics": ["DAU", "付费率", "用户时长"],
+  "created_at": "2026-04-06T00:00:00Z",
+  "updated_at": "2026-04-06T00:00:00Z",
+  "version": "v1",
+  "note": "示例 Boss Skill，采用第一人称沉浸式设计。用户通过 /example_bossxiong 与熊老板对话，预判决策反应。"
+}

@@ -354,6 +354,7 @@ Boss Skill的核心理念：
 详见 `prompts/` 目录下的模板文件：
 - `intake.md` - 信息录入模板
 - `decision_analyzer.md` - 决策分析模板
-- `power_analyzer.md` - 权力结构分析模板
-- `decision_builder.md` - 决策框架生成模板
-- `power_builder.md` - 权力结构生成模板
+- `decision_builder.md` - decision.md 生成模板
+- `business_builder.md` - business_context.md 生成模板
+- `persona_builder.md` - persona.md 生成模板
+- `skill_builder.md` - SKILL.md 生成模板
