@@ -52,7 +52,7 @@ boss-skill/
 │   ├── persona_builder.md   # persona.md 模板
 │   └── skill_builder.md    # SKILL.md 生成模板
 └── boss/                 # 生成的Boss Skill
-    └── {slug}/
+    └── {slug}/           # ⚠️ 建议加入 .gitignore 保护隐私
         ├── SKILL.md          # 主入口（第一人称）
         ├── decision.md       # 决策框架+权力结构
         ├── business_context.md  # 业务边界+OKR/KPI
@@ -70,11 +70,43 @@ boss-skill/
 
 ```bash
 # 安装到全局
-git clone https://github.com/your-repo/boss-skill ~/.openclaw/workspace/skills/boss-skill
+git clone https://github.com/gold3bear/boss-skill ~/.openclaw/workspace/skills/boss-skill
 
 # 或安装到项目
 mkdir -p .claude/skills
-git clone https://github.com/your-repo/boss-skill .claude/skills/boss-skill
+git clone https://github.com/gold3bear/boss-skill .claude/skills/boss-skill
+```
+
+---
+
+## 数据来源
+
+Boss Skill 的知识来源，按优先级排序：
+
+| 优先级 | 来源 | 说明 |
+|-------|------|------|
+| 🥇1st | 业务架构文档 | 飞书/Notion/Confluence 等 |
+| 🥈2nd | OKR/KPI 文档 | 老板的 OKR、团队 KPI |
+| 🥉3rd | 聊天记录 | 关键决策案例、表达风格 |
+| 4th | 周报/邮件 | 历史决策背景 |
+
+### 导入方式
+
+```
+[A] 飞书文档链接 — 直接提供飞书文档 URL
+[B] 直接粘贴内容 — 复制文档内容粘贴
+[C] 描述补充 — 用文字描述老板的决策风格
+```
+
+### 依赖安装（可选）
+
+```bash
+# 基础 Python 依赖
+pip3 install pypinyin        # 中文姓名转拼音 slug
+
+# 文档解析支持
+pip3 install python-docx     # Word .docx 转文本
+pip3 install openpyxl        # Excel .xlsx 转 CSV
 ```
 
 ---
@@ -119,6 +151,18 @@ git clone https://github.com/your-repo/boss-skill .claude/skills/boss-skill
 - 需要理解业务边界和权力结构
 - OKR/KPI是决策的核心驱动力
 - 组织政治影响决策
+
+---
+
+## .gitignore 配置
+
+建议将生成的 Boss Skill 加入项目 `.gitignore`：
+
+```gitignore
+# Boss Skill 生成的隐私内容
+boss/bosshuang/
+boss/*/meta.json
+```
 
 ---
 
